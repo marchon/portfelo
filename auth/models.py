@@ -7,4 +7,7 @@ class User(object):
        Na razie email i hasło"""
 
     def __init__(self):
-        self.mongo = g.mongo
+        self.backend = g.mongo.users
+
+    def create(self, email, password):
+        pass
