@@ -1,0 +1,7 @@
+{% for category, msg in get_flashed_messages(with_categories=true) %}
+  <p class=flash-{{ category }}>{{ msg }}</p>
+{% endfor %}
+<form action='' method='POST'>
+   <input type='text' name='email'>
+   <input type='submit' value='Zarejestruj'>
+</form>
