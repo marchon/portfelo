@@ -2,21 +2,19 @@ create_account.html
 
 <p>Siema, podaj email i hasło!</p>
 
-{% if context.form.errors %}
+{% if form.errors %}
     <ul class="errors">
-        {% for field_name, field_errors in context.form.errors.items() if field_errors %}
+        {% for field_name, field_errors in form.errors.items() if field_errors %}
             {% for error in field_errors %}
-                <li>{{ context.form[field_name].label }}: {{ error }}</li>
+                <li>{{ form[field_name].label }}: {{ error }}</li>
             {% endfor %}
         {% endfor %}
     </ul>
 {% endif %}
 
-<form method="POST" action="/create_account">
-    <div>{{ context.form.email.label }}: {{ context.form.email }}</div>
-    <div>{{ context.form.password1.label }}: {{ context.form.password1 }}</div>
-    <div>{{ context.form.password2.label }}: {{ context.form.password2 }}</div>
+<form method="POST" action="{{ action }}">
+    <div>{{ form.email.label }}: {{ form.email }}</div>
+    <div>{{ form.password.label }}: {{ form.password }}</div>
+    <div>{{ form.confirm.label }}: {{ form.confirm }}</div>
     <input type="submit" value="Napierdalaj!">
 </form>
-
-
