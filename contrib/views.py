@@ -6,8 +6,10 @@ from flask import redirect
 from flask import url_for
 from flask import escape
 from flask import request
+from flask import session
 from flask import g
 
+from portfelo.auth import utils as auth_utils
+
 def main_page():
-    context = {}
-    return render_template('main_page.html', context=context)
+    return render_template('main_page.html')

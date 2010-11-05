@@ -1,26 +1,30 @@
 {% extends 'base.html' %}
 
+login.html
+
 {% block content %}
 
-create_account.html
+<p>Aby się zalogować, podaj email i hasło! Nie masz konta? <a href="{{ create_account_url }}">Stwórz sobie :)</a></p>
 
-<p>Siema, podaj email i hasło!</p>
-
-{% if form.errors %}
+{% if form.errors or form.non_field_errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors.items() if field_errors %}
             {% for error in field_errors %}
                 <li>{{ form[field_name].label }}: {{ error }}</li>
             {% endfor %}
         {% endfor %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endif %}
     </ul>
 {% endif %}
 
 <form method="POST" action="{{ form_action }}">
     <div>{{ form.email.label }}: {{ form.email }}</div>
     <div>{{ form.password.label }}: {{ form.password }}</div>
-    <div>{{ form.confirm.label }}: {{ form.confirm }}</div>
-    <input type="submit" value="Napierdalaj!">
+    <input type="submit" value="Zaloguj">
 </form>
 
 {% endblock %}

@@ -1,0 +1,37 @@
+AUTH todo:
+
+mechanizm uwierzytelanijący posiadanie maila:
+    generujemy unikalny nie-do-zgadnięcia klucz dla danego usera (md5 z ObjectId, maila itp.), który
+    doklejamy do linka żądającego danej akcji w mailu. Po kliknięciu na żądanie sprawdzamy czy klucz
+    się zgadza. Jeżeli się zgadza, to pozwalamy na kontynuowanie.
+
+- zmiana hasła
+    wysyłka maila z kluczem, potwierdzenie maila posiadania tego maila,
+    form zmiany hasła w obecnej sesji.
+
+- resetowanie hasła
+    wysyłka maila z kluczem (np. z dzisiejszą datą, wtedy link będzie ważny tylko obecnego dnia),
+    reset hasła po kliknięciu w link, wysyłka tymczasowego hasła na obecnego maila.
+
+- zmiana maila
+    wysyłka maila z kluczem, po kliknięciu w link umożliwiamy zmianę maila,
+    na nowy mail wysyłamy potwierdzenie zmiany maila.
+
+- ustawianie first_name i last_name, ogólnie edycja profilu
+    edycja profilu usera, trywialne.
+
+- ustawianie last_login
+    trywialne.
+
+- salt w pass hashu
+    podczas pierwszego sejwa dodajemy do pass hasha sól w postaci ObjectId, co wymaga pierwszego
+    sejwa bez hasła.
+
+- reprezentacja danych z utcnow
+    wzięcie pod uwagę, że datetime są zapisywane nie z metody datetime.datetime.now lecz
+    datetime.datetime.utcnow.
+
+GLOBAL todo:
+
+- wszystko :)
+- celery
