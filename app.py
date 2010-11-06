@@ -13,8 +13,8 @@ from portfelo.auth import utils as auth_utils
 
 from portfelo.contrib.views import main_page
 
-from portfelo.trans.models import MonthTransactions
-from portfelo.trans.views import current_month
+from portfelo.transactions.models import Month
+from portfelo.transactions.views import current_month
 
 app = Flask(u'portfelo')
 app.config.from_pyfile('settings.py')
@@ -23,7 +23,7 @@ app.config.from_pyfile('settings.py')
 def before_request():
     g.conn = Connection(app.config['MONGODB_HOST'],
                         app.config['MONGODB_PORT'])
-    g.conn.register([User, MonthTransactions])
+    g.conn.register([User, Month])
     g.conn = g.conn.portfelo
     g.app = app
 

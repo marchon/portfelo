@@ -33,7 +33,7 @@ class CreateAccountForm(Form):
 class LoginForm(Form):
     email = TextField(u'Adres email', [validators.Required(), \
          validators.Email(message=u'Wpisz poprawny email!')])
-    password = PasswordField(u'Wpisz hasło')
+    password = PasswordField(u'Wpisz hasło', [validators.Required(),])
 
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
@@ -47,4 +47,5 @@ class LoginForm(Form):
             self.non_field_errors \
                 .append(u'Niepoprawna nazwa użyszkodnika lub hasło')
             return
-        return user
+        self.user = user
+        return True # explicite
