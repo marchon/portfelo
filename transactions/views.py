@@ -9,6 +9,8 @@ from flask import render_template
 from flask import url_for
 from flask import redirect
 
+from portfelo.transactions import utils as transactions_utils
+
 
 def current_month():
     """Shows transactions for current month. So gets or creates month-the-transaction-container."""

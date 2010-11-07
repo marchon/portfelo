@@ -4,5 +4,5 @@ from flask import request
 
 from portfelo.transactions.models import Month
 
-def get_or_create_current_month()
+def get_or_create_current_month():
     pass
