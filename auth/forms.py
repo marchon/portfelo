@@ -6,7 +6,6 @@ from wtforms import PasswordField
 from wtforms import BooleanField
 from wtforms import TextField
 from wtforms import ValidationError
-from wtforms import ValidationError
 
 from portfelo.auth import utils as auth_utils
 

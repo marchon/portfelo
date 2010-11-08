@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+add_transaction.html
+
+<p>Dodajemy transakcję dla obecnego miesiąca.</p>
+
+{% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors.items() if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="POST" action="{{ form_action }}">
+    <div>{{ form.amount.label }}: {{ form.amount }}</div>
+    <div>{{ form.transaction_type.label }}: {{ form.transaction_type }}</div>
+    <div>{{ form.category.label }}: {{ form.category }}</div>
+    <div>{{ form.desc.label }}: {{ form.desc }}</div>
+    <input type="submit" value="Napierdalaj!">
+</form>
+
+{% endblock %}

@@ -15,6 +15,7 @@ from portfelo.contrib.views import main_page
 
 from portfelo.transactions.models import Month
 from portfelo.transactions.views import current_month
+from portfelo.transactions.views import add_transaction
 
 app = Flask(u'portfelo')
 app.config.from_pyfile('settings.py')
@@ -40,10 +41,15 @@ def inject_user():
 
 # URLe
 app.route('/')(main_page)
+
+# auth
 app.route('/nowe-konto', methods=['GET', 'POST'])(create_account)
 app.route('/zaloguj', methods=['GET', 'POST'])(login)
 app.route('/wyloguj', methods=['GET', 'POST'])(logout)
+
+# transactions
 app.route('/obecny-miesiac')(current_month)
+app.route('/dodaj-transakcje', methods=['GET', 'POST'])(add_transaction)
 
 if __name__ == '__main__':
     app.debug = True

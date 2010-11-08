@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for transaction in transactions %}
+
+<div>
+<p>{{ transaction }} {{ transaction.amount }} - {{ transaction.get_type() }}</p>
+</div>
+
+{% endfor %}
+
+<p>Razem: {{ balance }}</p>
+
+{% endblock %}

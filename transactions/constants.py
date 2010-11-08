@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+
+TRANSACTION_TYPE_PLUS = u'1'
+TRANSACTION_TYPE_MINUS = u'2'
+
+TRANSACTION_TYPES = (
+
+    (TRANSACTION_TYPE_PLUS, u'Wpłata'),
+    (TRANSACTION_TYPE_MINUS, u'Wydatek')
+
+)
